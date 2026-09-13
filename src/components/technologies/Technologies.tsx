@@ -3,6 +3,7 @@ import type { TechnologyType } from "../../type";
 import Stack from "./Stack";
 import Technology from "./Technology";
 import { toast } from "react-toastify";
+import { PulseLoader } from "react-spinners";
 // import { toast } from "react-toastify/unstyled";
 // Fetch
 async function technologiesDataPromise(): Promise<TechnologyType[]> {
@@ -45,7 +46,7 @@ const Technologies = () => {
 
       <p className="text-center lg:text-start lg:ml-15 xl:ml-0 px-3 text-[14px] md:text-[16px] text-[#6B7280] mb-10">Pick one technology per category to build your ideal stack.</p>
       <div className="grid grid-cols-12 mx-5 xl:mx-0 ">
-        <Suspense fallback={<h2>Loading</h2>}>
+        <Suspense fallback={<h2><PulseLoader color="#f43f5e" /></h2>}>
           <Technology
             technologiesDataPromise={technologiesDataPromise()}
             handleClickToAddStack={handleClickToAddStack}
